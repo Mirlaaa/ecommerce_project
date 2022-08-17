@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+{%block content%}
+
+<h1 style="margin: 5.5%;">Confira nossos produtos!</h1>
+<section class="container-fluid product-panel mt-5 ">
+  <div class="row g-4 justify-content-evenly">
+    {% for produto in produtos %}
+    <div class="card col-sm-4 col-6" style="width: 15rem;">
+      <img src="/media/{{ produto.imagem }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ produto.nome }}</h5>
+        <p class="card-text">
+        <div style="width: 70px;  background-color: rgba(183, 250, 143, 0.86); padding-left: 5px; border-radius: 5px;">
+          <span> R${{ produto.preco }}</span>
+        </div>
+        </p>
+        <a href="{% url 'produto_info' produto.id %}" class="btn btn-primary">Quero comprar!</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+
+{% endblock%}

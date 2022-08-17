@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid d-flex flex-column align-items-center">
+  <div class="product-info d-flex justify-content-evenly align-items-center flex-lg-nowrap flex-sm-wrap">
+    <img class="product-img" src="/media/{{ produto.imagem }}">
+    <div class="product-text">
+      <h2> {{ produto.nome}} <span style="width: 120px;  background-color: rgba(183, 250, 143, 0.86); padding-left: 5px; border-radius: 5px;">R${{ produto.preco }}</span></h2>
+      <p> <span style="font-weight:bold;">Descrição:</span>
+        {{ produto.descricao}}
+      </p>
+    </div>
+  </div>
+  <a href="{% url 'produtos' %}" class="align-self-end" style="margin-right: 5.5%; margin-top: 5%; text-decoration: none;">
+    <button class="btn btn-primary">Adicionar ao carrinho</button></a>
+</div>
+
+{% endblock %}
